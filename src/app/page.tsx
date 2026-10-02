@@ -127,6 +127,12 @@ export default function Dashboard() {
     });
   };
 
+  const handleSignOut = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    // onAuthStateChange listener will handle reload
+  };
+
   const name = (lang: 'ar' | 'en') => lang === 'ar' ? 'name_ar' : 'name_en';
 
   return (
@@ -176,7 +182,7 @@ export default function Dashboard() {
                 <LanguageToggle />
                 <ExportDropdown />
                 <button
-                  onClick={() => {}}
+                  onClick={handleSignOut}
                   className="px-3 py-1.5 text-sm font-medium rounded-lg border bg-glass-dark border-glass-border text-white hover:bg-glass-light transition-colors focus-ring"
                 >
                   Sign Out

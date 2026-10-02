@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       email,
       options: {
         shouldCreateUser: true,
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/verify`,
+        // No emailRedirectTo = OTP only, no magic link
       },
     });
 
